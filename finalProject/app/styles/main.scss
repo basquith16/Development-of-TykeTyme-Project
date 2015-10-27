@@ -8,6 +8,14 @@ $icon-font-path: '../fonts/';
   margin-top: -15px;
 }
 
+.content {
+  margin: 40px 0 0 -50px;
+}
+
+html {
+  margin-top: -40px;
+}
+
 body {
   border-top: 15px solid black;
   background-color: rgba(131, 89, 48, .1)
@@ -26,16 +34,16 @@ margin-top: -20px;
   font-size: 24px;
   font-family: Bodoni;
   width: 100%;
+  height: 25px;
 }
 
 li {
-  margin-right: 50px;
+  margin: -10px 50px 0 0;
   border: 1px solid rgb(0, 50, 200);
   border-radius: 5px;
-  height: 40px;
-  margin-bottom: 20px;
-  line-height: .6em;
-  border-bottom-width: thick;
+  height: 25px;
+  line-height: 0;
+  border-bottom-width: medium;
   background: -webkit-linear-gradient(red, blue); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(red, blue); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(red, blue); /* For Firefox 3.6 to 15 */
@@ -82,7 +90,7 @@ footer {
 }
 
   h3 {
-    margin: 0 0 0 25px;
+    margin: 0 0 0 -1000px;
     line-height: 40px;
     padding-bottom: 19px;
   }
