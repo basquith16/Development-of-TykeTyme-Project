@@ -11,6 +11,13 @@ $icon-font-path: '../fonts/';
   margin: 40px 0 0 -50px;
 }
 
+.text-muted {
+  font-family: 'Caveat', cursive;
+  font-weight: 900;
+  font-size: 40px;
+  color: rgba(236, 100, 114, .8);
+}
+
 header {
 margin-top: -20px;
 }
@@ -61,6 +68,11 @@ a {
   text-shadow: 1px 1px black;
 }
 
+#external-events .fc-event, {
+  border: none;
+  font-family: Myriad Pro;
+  text-align: center;
+}
 
 footer {
   padding-left: 15px;
