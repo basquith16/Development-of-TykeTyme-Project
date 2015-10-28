@@ -2,9 +2,8 @@ $icon-font-path: '../fonts/';
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 .container {
-  background: linear-gradient(rgba(0, 153, 255, .1), rgba(0, 153, 255, .6));
-  border: 1px solid black;
-  border-bottom-width: medium;
+  background: linear-gradient(rgba(76, 186, 149, .1), rgba(76, 186, 149, .4));
+  border: 1px solid rgba(76, 186, 149, .7);
   margin-top: -15px;
 }
 
@@ -12,18 +11,8 @@ $icon-font-path: '../fonts/';
   margin: 40px 0 0 -50px;
 }
 
-html {
-  margin-top: -40px;
-}
-
-body {
-  border-top: 15px solid black;
-  background-color: rgba(131, 89, 48, .1)
-}
-
 header {
 margin-top: -20px;
-
 }
 
 .navTabs {
@@ -39,15 +28,14 @@ margin-top: -20px;
 
 li {
   margin: -10px 50px 0 0;
-  border: 1px solid rgb(0, 50, 200);
+  border: 1px solid rgba(76, 186, 149, .6);
   border-radius: 5px;
   height: 25px;
   line-height: 0;
-  border-bottom-width: medium;
   background: -webkit-linear-gradient(red, blue); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(red, blue); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(red, blue); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(rgba(0, 102, 204, .1), rgba(0, 102, 204, .6)); /* Standard syntax */
+  background: linear-gradient(rgba(76, 186, 149, .1), rgba(76, 186, 149, 0)); /* Standard syntax */
 }
 li:active {
   border-width: 0;
@@ -55,34 +43,24 @@ li:active {
   background: -webkit-linear-gradient(red, blue);
   background: -o-linear-gradient(red, blue);
   background: -moz-linear-gradient(red, blue);
-  background: linear-gradient(rgba(0, 102, 204, .6), rgba(0, 102, 204, .1));
+  background: linear-gradient(rgba(51, 51, 51, .1), rgba(51, 51, 51, .4));
 }
 
 a:active {
   color: white;
-  background: linear-gradient(rgba(0, 102, 204, .6), rgba(0, 102, 204, .1));
+  background: linear-gradient(rgba(51, 51, 51, .1), rgba(51, 51, 51, .4));
 }
 
-a:hover {
+li:hover {
   color: white;
-  background: linear-gradient(rgba(0, 102, 204, .6), rgba(0, 102, 204, .1));
-  // -webkit-transition: -webkit-transform 2s ease-in;
-  // transform: rotate3d(1, 2.0, 3.0, 360deg);
+  background: linear-gradient(rgba(76, 186, 149, .4), rgba(76, 186, 149, .1));
 }
 
 a {
   color: white;
-  text-shadow: 1px 1px blue;
+  text-shadow: 1px 1px black;
 }
 
-// .dad {
-//   width: 125px;
-//   height: 125px;
-//   background-image: url("../images/dadnbaby.jpg");
-//   background-size: cover;
-//   position: absolute;
-//   margin-left: 38px;
-// }
 
 footer {
   padding-left: 15px;

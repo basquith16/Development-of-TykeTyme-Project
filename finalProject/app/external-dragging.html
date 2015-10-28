@@ -65,7 +65,32 @@
 		text-align: center;
 		font-size: 14px;
 		font-family: "Myriad Pro",Helvetica,Arial,Verdana,sans-serif;
+		background-size: contain;
 	}
+
+	body::after {
+		content: "";
+		background-image: url("images/BeachBaby.jpg");
+		background-repeat: no-repeat;
+	  background-attachment: fixed;
+		background-size: cover;
+	  opacity: .5;
+	  top: 0;
+	  left: 0;
+	  bottom: 0;
+	  right: 0;
+	  height: 100%;
+	  width: 100%;
+	  position:fixed;
+		z-index: -1;
+
+	}
+
+.fc-widget-header {
+	background: rgba(236, 100, 114, .2);
+	color: white;
+	text-shadow: 1px 1px black;
+}
 
 	#wrap {
 		width: 1100px;
@@ -78,33 +103,37 @@
 		width: 175px;
 		padding: 0 10px;
 		border: 1px solid #ccc;
-		background: rgba(128, 155, 44, .4);
+		background: rgba(76, 186, 149, .2);
 		text-align: left;
 	}
 
 	#external-events h4 {
-		font-size: 16px;
+		font-size: 26px;
 		margin-top: 0;
-		padding-top: 1em;
+		padding-top: 10px;
+		color: white;
+		text-align: center;
+    -webkit-text-fill-color: rgba(236, 100, 114, .8);
 	}
 
 	.fc-center h2 {
-		color: rgba(128, 155, 44, .4);
-		text-shadow: 1px 1px black;
-		font-size: 36px;
+		color: rgba(232, 165, 112, .8);
+		font-size: 40px;
 		font-family: serif;
 		font-weight: bold;
-		margin-left: -40px;
+		margin: -15px 0 0 -40px;
 	}
 
 	#external-events .fc-event {
 		margin: 10px 0;
 		cursor: pointer;
+		font-size: 14px;
+		background: rgba(232, 165, 112, .6);
 	}
 
 	#external-events p {
 		margin: 1.5em 0;
-		font-size: 11px;
+		font-size: 14px;
 		color: #666;
 	}
 
@@ -118,18 +147,31 @@
 		width: 900px;
 	}
 
+  .fc-button-group, .fc-left {
+		opacity: .6;
+	}
+
 </style>
 </head>
 <body>
 	<div id='wrap'>
 
 		<div id='external-events'>
-			<h4>Draggable Events</h4>
+			<h4>Plans</h4>
 			<div class='fc-event'>Elephant Plate Art</div>
 			<div class='fc-event'>Balance Exercises</div>
 			<div class='fc-event'>Sweet Potatoes and Apple Sauce</div>
 			<div class='fc-event'>Gymboree Class</div>
-			<div class='fc-event'>Avocado and Carrots</div>
+			<div class='fc-event'>Playground</div>
+			<div class='fc-event'>Nap</div>
+			<div class='fc-event'>Baby Yoga Class</div>
+			<div class='fc-event'>Tummy Time</div>
+			<div class='fc-event'>Milk</div>
+			<div class='fc-event'>Dr. Appt</div>
+			<div class='fc-event'>Playdate with Isa</div>
+			<div class='fc-event'>Fingerpaint</div>
+			<div class='fc-event'>Music Time</div>
+			<div class='fc-event'>Walk</div>
 			<p>
 				<input type='checkbox' id='drop-remove' />
 				<label for='drop-remove'>remove after drop</label>
