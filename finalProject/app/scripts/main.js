@@ -1,81 +1,86 @@
+"use strict";
+
 _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
 
+class Craft extends Backbone.Model {}
 
-var Craft = Backbone.Model.extend({
-    url: "/crafts.JSON"
-});
 
-var Crafts = Backbone.Collection.extend({
-  model: Craft,
-  url: '/crafts.JSON'
+class Crafts extends Backbone.Collection {
+  get url() {
+    return '../crafts.JSON'
+  }
+  get model() {
+    return Craft
+  }
+}
 
-})
+class CraftView extends Backbone.View {
 
-var CraftView = Backbone.View.extend({
-  template: _.template($('#craftTemplate').text()),
-
-  render: function () {
-    console.log('render function')
-    var self = this;
-    this.collection.each(function(craft) {
-      var view = new CraftView({
-        model: craft
-      });
-      self.$el.append(view.render());
-    })
+  render() {
+    this.$el.text('hello')
     return this.$el;
   }
-});
+}
 
-
+class CraftsView extends Backbone.View {
+  render() {
+    console.log('render function')
+    const self = this;
+    console.log(this)
+    this.collection.each((craft) => {
+      let view = new CraftView({ model: craft });
+      self.$el.append(view.render());
+    });
+    console.log(this.el)
+    return this.$el;
+  }
+};
 
 //Router
 
-var Router = Backbone.Router.extend({
+class Router extends Backbone.Router {
 
-  routes: {
-     "": 'showHome',
-     'crafts': 'showCrafts',
-     'activities': 'showActivities',
-     'whatsAround': 'showWhatsAround',
-     'meals': 'showMeals'
- },
+  get routes() {
+    return {
+      "": 'showHome',
+      'crafts': 'showCrafts',
+      'activities': 'showActivities',
+      'whatsAround': 'showWhatsAround',
+      'meals': 'showMeals'
+     };
+   }
 
-   showHome: function() {
+   showHome() {
      $.ajax('external-dragging.html').then(function(page) {
        $('.content').html(page);
      });
-   },
+   }
 
-   showCrafts: function() {
-     var craft = new Craft({
+   showCrafts() {
+     this.crafts = new Crafts();
+     const craftsView = new CraftsView({
+       collection: this.crafts
      });
 
-     console.log(craft);
-
-     craft.fetch().then(function () {
-       console.log('fetched');
-       var view = new CraftView({
-         model: craft
-       });
-       $('.fc-events').html(view.render());
+     this.crafts.fetch().done(() => {
+       console.log(this.crafts);
+       $('.fc-events').html(craftsView.render());
+     }).fail((xhr, status, error) => {
+       console.log(xhr, status, error);
      })
-   },
+   }
 
   //  showActivities: function() {
   //  },
 
-   initialize: function() {
+   initialize() {
      console.log('initialized');
-     var craft = new Craft();
-     collection: this.crafts
+     this.crafts = new Crafts();
      Backbone.history.start();
    }
-  });
-
-
+  };
 
 $(function() {
   console.log('router initialized')
