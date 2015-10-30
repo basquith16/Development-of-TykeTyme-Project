@@ -9,7 +9,7 @@ class Craft extends Backbone.Model {}
 
 class Crafts extends Backbone.Collection {
   get url() {
-    return '../crafts.JSON'
+    return '../crafts.jsonl'
   }
   get model() {
     return Craft
@@ -17,18 +17,18 @@ class Crafts extends Backbone.Collection {
 }
 
 class CraftView extends Backbone.View {
-
+  get template() {
+    return _.template($('#craftTemplate').text());
+ }
   render() {
-    this.$el.text('hello')
+    this.$el.html(this.template(this.model.attributes));
     return this.$el;
   }
 }
 
 class CraftsView extends Backbone.View {
   render() {
-    console.log('render function')
     const self = this;
-    console.log(this)
     this.collection.each((craft) => {
       let view = new CraftView({
         model: craft
@@ -46,7 +46,7 @@ class Router extends Backbone.Router {
 
   get routes() {
     return {
-      "": 'showHome',
+      "": 'index',
       'crafts': 'showCrafts',
       'activities': 'showActivities',
       'whatsAround': 'showWhatsAround',
@@ -54,10 +54,10 @@ class Router extends Backbone.Router {
     };
   }
 
-  showHome() {
-    //  $.ajax('index.html').then(function(page) {
-    //    $('.content').html(page);
-    //  });
+  index() {
+     $.ajax('index.html').then(function(page) {
+       $('').html(page);
+     });
   }
 
   showCrafts() {
@@ -68,7 +68,7 @@ class Router extends Backbone.Router {
 
     this.crafts.fetch().done(() => {
       console.log(this.crafts);
-      $('.fc-events').html(craftsView.render());
+      $('#calendar').html(craftsView.render());
     }).fail((xhr, status, error) => {
       console.log(xhr, status, error);
     })

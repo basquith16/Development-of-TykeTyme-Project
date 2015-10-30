@@ -8,6 +8,7 @@
   <title>TykeTyme</title>
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Place favicon.ico in the root directory -->
+  <link rel="stylesheet" href="styles/craftList.css">
   <link rel="stylesheet" href="styles/calendar.css">
   <link rel="stylesheet" href="styles/main.css">
   <link href='https://fonts.googleapis.com/css?family=Caveat' rel='stylesheet' type='text/css'>
@@ -17,12 +18,11 @@
 </head>
 
 <body>
-  <header>
     <h3 class="text-muted">TykeTyme</h3>
     <div class="container">
       <div class="navTabs">
         <ul class="nav nav-pills pull-right">
-          <li><a href="#">Home</a></li>
+          <li><a href="">Home</a></li>
           <li><a href="#crafts">Crafts</a></li>
           <li><a href="#activities">Activities</a></li>
           <li><a href="#">What's Around</a></li>
@@ -31,7 +31,6 @@
         </ul>
       </div>
     </div>
-  </header>
   <div class="content"></div>
   <div id='wrap'>
     <div id='external-events'>
@@ -62,7 +61,16 @@
   <footer>
   </footer>
   <script type="text/template" id="craftTemplate">
-    <div class="title">{{ title }} </div>
+    <div class="craftListing">
+      <div class="title">{{ title }}</div>
+      <div class="materials"><span>What you'll need:</span> {{ materials }}</div>
+      <div class="instruct"><span>Instructions:</span> {{ instructions }}</div>
+      <div class="cost"><span>Cost:</span> ${{ cost }}</div>
+      <div class="age"><span>Age:</span> {{ age }}</div>
+    </div>
+
+
+  </script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       (function(b, o, i, l, e, r) {

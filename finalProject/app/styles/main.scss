@@ -16,10 +16,13 @@ $icon-font-path: '../fonts/';
   font-weight: 900;
   font-size: 40px;
   color: rgb(64, 134, 177);
+  padding-top: 15px;
 }
 
-header {
-margin-top: -20px;
+span {
+  font-weight: 600;
+  color: rgb(64, 134, 177);
+
 }
 
 .navTabs {
