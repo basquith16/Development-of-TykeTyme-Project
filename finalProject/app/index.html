@@ -8,6 +8,7 @@
   <title>TykeTyme</title>
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Place favicon.ico in the root directory -->
+  <link rel="stylesheet" href="styles/activityList.css">
   <link rel="stylesheet" href="styles/craftList.css">
   <link rel="stylesheet" href="styles/calendar.css">
   <link rel="stylesheet" href="styles/main.css">
@@ -25,7 +26,7 @@
           <li><a href="">Home</a></li>
           <li><a href="#crafts">Crafts</a></li>
           <li><a href="#activities">Activities</a></li>
-          <li><a href="#">What's Around</a></li>
+          <li><a href="#showMap">What's Around</a></li>
           <li><a href="#">Meals</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
@@ -68,8 +69,15 @@
       <div class="cost"><span>Cost:</span> ${{ cost }}</div>
       <div class="age"><span>Age:</span> {{ age }}</div>
     </div>
-
-
+  </script>
+  <script type="text/template" id="activityTemplate">
+    <div class="activityListing">
+    <div class="actTitle">{{ Title }}</div>
+    <div class="actDirect">{{ Directions }}</div>
+    <div class="actMaterials">{{ Materials }}</div>
+    <div class="actCost">{{ Cost }}</div>
+    <div class="actAge">{{ Age }}</div>
+  </div>
   </script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

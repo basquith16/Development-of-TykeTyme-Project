@@ -3,49 +3,56 @@
         "Category": "Physical Activities",
         "Title": "Single-Leg Balances",
         "Materials": "NONE",
-        "Directions": "Single-Leg Balance Challenges:/n1. Single-Leg Balance: Stand on 1 foot (Hold single-leg balance for 3 seconds)/n2. Kimbo Stand: Cross one leg over the other and touch that toe to the floor. Stretch your arms out to the side to help you balance/n3. Stork Stand: Balance like a bird called a stork. Balance on 1 foot. Put the other foot on the side of your knee. Both arms out to the side. Hold that pose. Try the other leg/n4. Sideways Balance: Stretch your arms to the side. Lift 1 leg straight out to the side. Hold your pose. Switch legs and try again. Hold it steady/n5. Backward Balance: Stretch your arms to the side. Lift 1 leg backward (leg is parallel to the ground) while you lean forward. Hold your pose. Switch/n6. Forward Balance: Stretch your arms to the side. Raise 1 leg in front of you. Point your toes and hold your pose. Switch.",
-        "Cost": "24"
+        "Directions": "Single-Leg Balance Challenges: \n1. Single-Leg Balance: Stand on 1 foot (Hold single-leg balance for 3 seconds) \n2. Kimbo Stand: Cross one leg over the other and touch that toe to the floor. Stretch your arms out to the side to help you balance \n3. Stork Stand: Balance like a bird called a stork. Balance on 1 foot. Put the other foot on the side of your knee. Both arms out to the side. Hold that pose. Try the other leg \n4. Sideways Balance: Stretch your arms to the side. Lift 1 leg straight out to the side. Hold your pose. Switch legs and try again. Hold it steady \n5. Backward Balance: Stretch your arms to the side. Lift 1 leg backward (leg is parallel to the ground) while you lean forward. Hold your pose. Switch \n6. Forward Balance: Stretch your arms to the side. Raise 1 leg in front of you. Point your toes and hold your pose. Switch.",
+        "Cost": "24",
+        "Age": ""
     },
     {
         "Category": "Physical Activities",
         "Title": "Tumbling Tower",
         "Materials": "Blocks or small boxes, a ball.",
         "Directions": "1. Stack the blocks to build a tower. 2. Stand at least 2 feet away and kick the ball into the tower, causing it to break apart. 3. Repeat.",
-        "Cost": ""
+        "Cost": "",
+        "Age": ""
     },
     {
         "Category": "Physical Activities",
         "Title": "Empty the Milk Jug",
         "Materials": "15-20 white clothespins, Gallon sized milk jug",
         "Directions": "Fill the milk jug with the clothespins and have them shake it upside down until they all fall out.",
-        "Cost": ""
+        "Cost": "",
+        "Age": ""
     },
     {
         "Category": "Physical Activities",
         "Title": "The Sticky Foot Runway",
         "Materials": "4-6ft of contact paper, duct tape, music (optional)",
-        "Directions": "1. Tape the contact paper to the floor so it is secure/n2. Remove the contact paper covering/n3. Have the child walk, skip, or jump across the sticky runway.",
-        "Cost": "Approx $5.00"
+        "Directions": "1. Tape the contact paper to the floor so it is secure \n2. Remove the contact paper covering \n3. Have the child walk, skip, or jump across the sticky runway.",
+        "Cost": "Approx $5.00",
+        "Age": ""
     },
     {
         "Category": "Physical Activities",
         "Title": "Musical Bubble Dance",
         "Materials": "Bubble wrap, duct tape, music",
-        "Directions": "1. Secure a large area of bubble wrap to the floor with tape/n2. Play music and dance on the bubble wrap.",
-        "Cost": "Approx $6.00"
+        "Directions": "1. Secure a large area of bubble wrap to the floor with tape \n2. Play music and dance on the bubble wrap.",
+        "Cost": "Approx $6.00",
+        "Age": ""
     },
     {
         "Category": "Physical Activities",
         "Title": "",
         "Materials": "",
         "Directions": "",
-        "Cost": ""
+        "Cost": "",
+        "Age": ""
     },
     {
         "Category": "Physical Activities",
         "Title": "",
         "Materials": "",
         "Directions": "",
-        "Cost": ""
+        "Cost": "",
+        "Age": ""
     }
 ]

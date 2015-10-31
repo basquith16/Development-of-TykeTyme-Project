@@ -4,8 +4,10 @@ _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
 
-class Craft extends Backbone.Model {}
+//Models
 
+class Craft extends Backbone.Model {}
+class Activity extends Backbone.Model {}
 
 class Crafts extends Backbone.Collection {
   get url() {
@@ -16,6 +18,17 @@ class Crafts extends Backbone.Collection {
   }
 }
 
+class Activities extends Backbone.Collection {
+  get url() {
+    return '../PhysActivities.JSON'
+  }
+  get model() {
+    return Activity
+  }
+}
+
+
+//Views
 class CraftView extends Backbone.View {
   get template() {
     return _.template($('#craftTemplate').text());
@@ -25,6 +38,17 @@ class CraftView extends Backbone.View {
     return this.$el;
   }
 }
+
+class ActivityView extends Backbone.View {
+  get template() {
+    return _.template($('#activityTemplate').text());
+ }
+  render() {
+    this.$el.html(this.template(this.model.attributes));
+    return this.$el;
+  }
+}
+
 
 class CraftsView extends Backbone.View {
   render() {
@@ -40,6 +64,21 @@ class CraftsView extends Backbone.View {
   }
 };
 
+class ActivitiesView extends Backbone.View {
+  render() {
+    const self = this;
+    this.collection.each((activity) => {
+      let view = new ActivityView({
+        model: activity
+      });
+      self.$el.append(view.render());
+    });
+    console.log(this.el)
+    return this.$el;
+  }
+};
+
+
 //Router
 
 class Router extends Backbone.Router {
@@ -49,7 +88,7 @@ class Router extends Backbone.Router {
       "": 'index',
       'crafts': 'showCrafts',
       'activities': 'showActivities',
-      'whatsAround': 'showWhatsAround',
+      'whatsAround': 'showMap',
       'meals': 'showMeals'
     };
   }
@@ -74,12 +113,31 @@ class Router extends Backbone.Router {
     })
   }
 
-  //  showActivities: function() {
-  //  },
+  showActivities() {
+    this.activities = new Activities();
+    const activitiesView = new ActivitiesView({
+      collection: this.activities
+    });
+
+    this.activities.fetch().done(() => {
+      console.log(this.activities);
+      $('#calendar').html(activitiesView.render());
+    }).fail((xhr, status, error) => {
+      console.log(xhr, status, error);
+    })
+  }
+
+  showMap() {
+    console.log('showMap')
+    $.ajax('map.html').then(function(page) {
+      $('#calendar').html(page);
+    })
+ }
 
   initialize() {
     console.log('initialized');
     this.crafts = new Crafts();
+    this.activities = new Activities();
     Backbone.history.start();
   }
 };
