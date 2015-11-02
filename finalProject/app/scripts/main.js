@@ -8,6 +8,7 @@ _.templateSettings = {
 
 class Craft extends Backbone.Model {}
 class Activity extends Backbone.Model {}
+class Meal extends Backbone.Model {}
 
 class Crafts extends Backbone.Collection {
   get url() {
@@ -27,6 +28,15 @@ class Activities extends Backbone.Collection {
   }
 }
 
+class Meals extends Backbone.Collection {
+  get url() {
+    return '../meals.JSON'
+  }
+  get model() {
+    return Meal
+  }
+}
+
 
 //Views
 class CraftView extends Backbone.View {
@@ -42,6 +52,16 @@ class CraftView extends Backbone.View {
 class ActivityView extends Backbone.View {
   get template() {
     return _.template($('#activityTemplate').text());
+ }
+  render() {
+    this.$el.html(this.template(this.model.attributes));
+    return this.$el;
+  }
+}
+
+class MealView extends Backbone.View {
+  get template() {
+    return _.template($('#mealTemplate').text());
  }
   render() {
     this.$el.html(this.template(this.model.attributes));
@@ -70,6 +90,20 @@ class ActivitiesView extends Backbone.View {
     this.collection.each((activity) => {
       let view = new ActivityView({
         model: activity
+      });
+      self.$el.append(view.render());
+    });
+    console.log(this.el)
+    return this.$el;
+  }
+};
+
+class MealsView extends Backbone.View {
+  render() {
+    const self = this;
+    this.collection.each((meal) => {
+      let view = new MealView({
+        model: meal
       });
       self.$el.append(view.render());
     });
@@ -127,8 +161,21 @@ class Router extends Backbone.Router {
     })
   }
 
+  showMeals() {
+    this.meals = new Meals();
+    const mealsView = new MealsView({
+      collection: this.meals
+    });
+
+    this.meals.fetch().done(() => {
+      console.log(this.meals);
+      $('#calendar').html(mealsView.render());
+    }).fail((xhr, status, error) => {
+      console.log(xhr, status, error);
+    })
+  }
+
   showMap() {
-    console.log('showMap')
     $.ajax('map.html').then(function(page) {
       $('#calendar').html(page);
     })
@@ -138,6 +185,7 @@ class Router extends Backbone.Router {
     console.log('initialized');
     this.crafts = new Crafts();
     this.activities = new Activities();
+    this.meals = new Meals();
     Backbone.history.start();
   }
 };
