@@ -1,0 +1,248 @@
+/* ----------- iPad 3 and 4 ----------- */
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1204px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .text-muted  {
+      margin: 0 0 0 5%;
+    }
+
+    .register {
+      margin: 2% 7% 0 0;
+      font-size: 2px;
+    }
+
+    .login {
+      padding-right: 2em;
+      margin: 2% 0 0 40%;
+      font-size: 7px;
+    }
+
+    li {
+      display: flex;
+      flex-direction: row;
+      font-size: 12px;
+      background-color: none;
+    }
+
+    .container {
+      width: 100%;
+    }
+
+    li a {
+      border: none;
+      background-color: none;
+    }
+
+    .navTabs {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    #wrap {
+      max-width: 100%;
+    }
+
+    #calendar {
+      max-width: 75%;
+      margin-right: 5%;
+    }
+
+    #external-events {
+      margin: 0 0 0 1%;
+      padding: 0;
+      max-width: 20%;
+    }
+
+}
+
+
+/* ----------- iPad mini ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .text-muted  {
+      margin: 0 0 0 5%;
+    }
+
+    .register {
+      margin: 2% 7% 0 0;
+      font-size: 7px;
+      padding-right: 10%;
+    }
+
+    .login {
+      padding-right: 2em;
+      margin: 2% 0 0 40%;
+      font-size: 7px;
+    }
+
+    li {
+      display: flex;
+      flex-direction: row;
+      font-size: 12px;
+      background-color: none;
+    }
+
+    li a {
+      border: none;
+      background-color: none;
+    }
+
+    .navTabs {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    #wrap {
+      max-width: 100%;
+    }
+
+    #calendar {
+      max-width: 75%
+    }
+
+    #external-events {
+      margin: 0;
+      padding: 0;
+      max-width: 15%;
+    }
+
+}
+
+
+//adjusted for app
+@media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 780px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .text-muted  {
+      margin: 0 0 0 5%;
+    }
+
+    .register {
+      margin: 2% 7% 0 0;
+      font-size: 7px;
+      padding-right: 10%;
+    }
+
+    .login {
+      padding-right: 2em;
+      margin: 2% 0 0 40%;
+      font-size: 7px;
+    }
+
+    li {
+      display: flex;
+      flex-direction: row;
+      font-size: 12px;
+      background-color: none;
+    }
+
+    li a {
+      border: none;
+      background-color: none;
+    }
+
+    .navTabs {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    #wrap {
+      max-width: 100%;
+    }
+
+    #calendar {
+      max-width: 75%;
+    }
+
+    #external-events {
+      margin: 0;
+      padding: 0;
+      max-width: 20%;
+    }
+
+}
+
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .text-muted  {
+      margin: 0 0 0 5%;
+    }
+
+    .register {
+      margin: 2% 7% 0 0;
+      font-size: 7px;
+      padding-right: 10%;
+    }
+
+    .login {
+      padding-right: 2em;
+      margin: 2% 0 0 40%;
+      font-size: 7px;
+    }
+
+    li {
+      display: flex;
+      flex-direction: row;
+      font-size: 12px;
+      background-color: none;
+    }
+
+    li a {
+      border: none;
+      background-color: none;
+    }
+
+    .navTabs {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    #wrap {
+      max-width: 100%;
+    }
+
+    #calendar {
+      max-width: 75%;
+      margin: 0 2% 0 0;
+    }
+
+    #external-events {
+      margin: 0;
+      padding: 0;
+      max-width: 20%;
+    }
+}
+
+/* ----------- Apple Watch ----------- */
+@media
+  (max-device-width: 42mm)
+  and (min-device-width: 38mm) {
+
+}
