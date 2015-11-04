@@ -70,6 +70,7 @@
       <div class="instruct"><span>Instructions:</span> {{ instructions }}</div>
       <div class="cost"><span>Cost:</span> ${{ cost }}</div>
       <div class="age"><span>Age:</span> {{ age }}</div>
+
     </div>
   </script>
   <script type="text/template" id="activityTemplate">
@@ -81,13 +82,14 @@
     <div class="actAge">{{ Age }}</div>
   </div>
   </script>
-  <script type="text/template" id="mealTemplate">
+  <script type="text/html" id="mealTemplate">
     <div class="mealListing">
     <div class="mealTitle">{{ Title }}</div>
     <div class="mealIngred">{{ Ingredients }}</div>
     <div class="mealDirect">{{ Directions }}</div>
     <div class="mealCost">{{ Cost }}</div>
     <div class="mealAge">{{ Age }}</div>
+    <button type="button" id="addItem">Add</button>
   </div>
   </script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

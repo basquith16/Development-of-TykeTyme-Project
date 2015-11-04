@@ -5,9 +5,9 @@ if (currentUser) {
     // do stuff with the user
 } else {
     var user = new Parse.User();
-    user.set("username", "basquith16");
-    user.set("password", "pupuplatter");
-    user.set("email", "brianasquith@yahoo.com");
+    user.set("username", "username");
+    user.set("password", "password");
+    user.set("email", "example@email.com");
     user.set("phone", "650-555-0000");
 
     user.signUp(null, {

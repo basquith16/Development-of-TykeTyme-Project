@@ -10,10 +10,15 @@ class CraftView extends Backbone.View {
   get template() {
     return _.template($('#craftTemplate').text());
  }
+  events() {
+    return {
+      'click #addItem': 'onButtonNewClick'
+  };
+ }
   render() {
     this.$el.html(this.template(this.model.attributes));
     return this.$el;
-  }
+ }
 }
 
 class ActivityView extends Backbone.View {
