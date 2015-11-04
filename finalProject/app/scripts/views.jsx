@@ -9,24 +9,28 @@ _.templateSettings = {
 class CraftView extends Backbone.View {
   get template() {
     return _.template($('#craftTemplate').text());
- }
+  }
   events() {
     return {
       'click #addItem': 'onButtonNewClick'
-  };
+ }
+}
+  onButtonNewClick()  {
+    return addView = new CraftView({model: craft})
  }
   render() {
     this.$el.html(this.template(this.model.attributes));
     return this.$el;
- }
+  }
 }
 
 class ActivityView extends Backbone.View {
   get template() {
     return _.template($('#activityTemplate').text());
- }
+  }
   render() {
-    this.$el.html(this.template(this.model.attributes));
+    this.$el
+      .html(this.template(this.model.attributes));
     return this.$el;
   }
 }
@@ -34,23 +38,25 @@ class ActivityView extends Backbone.View {
 class MealView extends Backbone.View {
   get template() {
     return _.template($('#mealTemplate').text());
- }
+  }
   render() {
-    this.$el.html(this.template(this.model.attributes));
+    this.$el
+      .html(this.template(this.model.attributes));
     return this.$el;
   }
 }
 
-
 class CraftsView extends Backbone.View {
   render() {
     const self = this;
-    this.collection.each((craft) => {
-      let view = new CraftView({
-        model: craft
+    this.collection
+      .each((craft) => {
+        let view = new CraftView({
+          model: craft
+        });
+        self.$el
+          .append(view.render());
       });
-      self.$el.append(view.render());
-    });
     console.log(this.el)
     return this.$el;
   }
@@ -59,12 +65,14 @@ class CraftsView extends Backbone.View {
 class ActivitiesView extends Backbone.View {
   render() {
     const self = this;
-    this.collection.each((activity) => {
-      let view = new ActivityView({
-        model: activity
+    this.collection
+      .each((activity) => {
+        let view = new ActivityView({
+          model: activity
+        });
+        self.$el
+          .append(view.render());
       });
-      self.$el.append(view.render());
-    });
     console.log(this.el)
     return this.$el;
   }
@@ -73,12 +81,14 @@ class ActivitiesView extends Backbone.View {
 class MealsView extends Backbone.View {
   render() {
     const self = this;
-    this.collection.each((meal) => {
-      let view = new MealView({
-        model: meal
+    this.collection
+      .each((meal) => {
+        let view = new MealView({
+          model: meal
+        });
+        self.$el
+          .append(view.render());
       });
-      self.$el.append(view.render());
-    });
     console.log(this.el)
     return this.$el;
   }

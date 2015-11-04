@@ -26,32 +26,34 @@
     <div class="login"><a href="#">Login</a></div>
     <div class="register"><a href="#">Register</a></div>
   </header>
-    <div class="container">
-      <div class="navTabs">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="">Schedule</a></li>
-          <li><a href="#crafts">Crafts</a></li>
-          <li><a href="#activities">Activities</a></li>
-          <li><a href="#whatsAround">What's Around</a></li>
-          <li><a href="#meals">Meals</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
+  <div class="container">
+    <div class="navTabs">
+      <ul class="nav nav-pills pull-right">
+        <li><a href="">Schedule</a></li>
+        <li><a href="#crafts">Crafts</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#whatsAround">What's Around</a></li>
+        <li><a href="#meals">Meals</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
     </div>
+  </div>
   <div class="content"></div>
   <div id='wrap'>
     <div id='external-events'>
       <h4>Plans</h4>
-      <div class='fc-event'>Elephant Plate Art</div>
-      <div class='fc-event'>Balance Exercises</div>
-      <div class='fc-event'>Sweet Potatoes and Apple Sauce</div>
-      <div class='fc-event'>Gymboree Class</div>
-      <div class='fc-event'>Playground</div>
-      <div class='fc-event'>Nap</div>
-      <div class='fc-event'>Baby Yoga Class</div>
-      <div class='fc-event'>Tummy Time</div>
-      <div class='fc-event'>Milk</div>
-      <div class='fc-event'>Dr. Appt</div>
+      <ul id="dragList">
+      <li class='fc-event'>Elephant Plate Art</li>
+      <li class='fc-event'>Balance Exercises</li>
+      <li class='fc-event'>Sweet Potatoes and Apple Sauce</li>
+      <li class='fc-event'>Gymboree Class</li>
+      <li class='fc-event'>Playground</li>
+      <li class='fc-event'>Nap</li>
+      <li class='fc-event'>Baby Yoga Class</li>
+      <li class='fc-event'>Tummy Time</li>
+      <li class='fc-event'>Milk</li>
+      <li class='fc-event'>Dr. Appt</li>
+    </ul>
       <p>
         <input type='checkbox' id='drop-remove' />
         <label for='drop-remove'>remove after drop</label>
@@ -66,75 +68,80 @@
   <script type="text/template" id="craftTemplate">
     <div class="craftListing">
       <div class="title">{{ title }}</div>
-      <div class="materials"><span>What you'll need:</span> {{ materials }}</div>
-      <div class="instruct"><span>Instructions:</span> {{ instructions }}</div>
-      <div class="cost"><span>Cost:</span> ${{ cost }}</div>
-      <div class="age"><span>Age:</span> {{ age }}</div>
-
+      <div class="materials">
+        <span>What you'll need:</span> {{ materials }}</div>
+      <div class="instruct">
+        <span>Instructions:</span> {{ instructions }}</div>
+      <div class="cost">
+        <span>Cost:</span> ${{ cost }}</div>
+      <div class="age">
+        <span>Age:</span> {{ age }}</div>
+        <button type="button" id="addItem">Add</button>
     </div>
   </script>
   <script type="text/template" id="activityTemplate">
     <div class="activityListing">
-    <div class="actTitle">{{ Title }}</div>
-    <div class="actDirect">{{ Directions }}</div>
-    <div class="actMaterials">{{ Materials }}</div>
-    <div class="actCost">{{ Cost }}</div>
-    <div class="actAge">{{ Age }}</div>
-  </div>
+      <div class="actTitle">{{ Title }}</div>
+      <div class="actDirect">{{ Directions }}</div>
+      <div class="actMaterials">{{ Materials }}</div>
+      <div class="actCost">{{ Cost }}</div>
+      <div class="actAge">{{ Age }}</div>
+      <button type="button" id="addItem">Add</button>
+    </div>
   </script>
   <script type="text/html" id="mealTemplate">
     <div class="mealListing">
-    <div class="mealTitle">{{ Title }}</div>
-    <div class="mealIngred">{{ Ingredients }}</div>
-    <div class="mealDirect">{{ Directions }}</div>
-    <div class="mealCost">{{ Cost }}</div>
-    <div class="mealAge">{{ Age }}</div>
-    <button type="button" id="addItem">Add</button>
-  </div>
+      <div class="mealTitle">{{ Title }}</div>
+      <div class="mealIngred">{{ Ingredients }}</div>
+      <div class="mealDirect">{{ Directions }}</div>
+      <div class="mealCost">{{ Cost }}</div>
+      <div class="mealAge">{{ Age }}</div>
+      <button type="button" id="addItem">Add</button>
+    </div>
   </script>
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b, o, i, l, e, r) {
-        b.GoogleAnalyticsObject = l;
-        b[l] || (b[l] =
-          function() {
-            (b[l].q = b[l].q || []).push(arguments)
-          });
-        b[l].l = +new Date;
-        e = o.createElement(i);
-        r = o.getElementsByTagName(i)[0];
-        e.src = 'https://www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e, r)
-      }(window, document, 'script', 'ga'));
-      ga('create', 'UA-XXXXX-X');
-      ga('send', 'pageview');
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+    (function(b, o, i, l, e, r) {
+      b.GoogleAnalyticsObject = l;
+      b[l] || (b[l] =
+        function() {
+          (b[l].q = b[l].q || []).push(arguments)
+        });
+      b[l].l = +new Date;
+      e = o.createElement(i);
+      r = o.getElementsByTagName(i)[0];
+      e.src = 'https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
 
-    </script>
-    <script src='schedule/lib/moment.min.js'></script>
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src='schedule/lib/jquery-ui.custom.min.js'></script>
-    <script src='schedule/fullcalendar.min.js'></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react-dom.js'></script>
-    <script src="scripts/main.jsx"></script>
-    <script src="scripts/parseLogin.jsx"></script>
-    <script src="scripts/router.jsx"></script>
-    <script src="scripts/models.jsx"></script>
-    <script src="scripts/views.jsx"></script>
+  </script>
+  <script src='schedule/lib/moment.min.js'></script>
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src='schedule/lib/jquery-ui.custom.min.js'></script>
+  <script src='schedule/fullcalendar.min.js'></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react-dom.js'></script>
+  <script src="scripts/main.jsx"></script>
+  <script src="scripts/parseLogin.jsx"></script>
+  <script src="scripts/router.jsx"></script>
+  <script src="scripts/models.jsx"></script>
+  <script src="scripts/views.jsx"></script>
 </body>
 
 </html>

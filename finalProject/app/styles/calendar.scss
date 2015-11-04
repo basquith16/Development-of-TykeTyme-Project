@@ -33,6 +33,7 @@ text-shadow: 1px 1px black;
 #wrap {
   width: 1100px;
   margin: 0 auto;
+  margin-right: 8%;
 }
 
 .fc-content {
@@ -41,12 +42,12 @@ text-shadow: 1px 1px black;
 
 #external-events {
   float: left;
-  margin-left: -20px;
-  width: 175px;
+  width: 160px;
   padding: 0 10px;
   border: 1px solid #ccc;
   background: rgba(76, 186, 149, .2);
   text-align: left;
+  margin-left: -3%;
 }
 
 #external-events h4 {
@@ -66,8 +67,13 @@ text-shadow: 1px 1px black;
   margin: -15px 0 0 -40px;
 }
 
+#dragList {
+  list-style: none;
+  margin-left: -15px;
+}
+
 #external-events .fc-event {
-  margin: 10px 0;
+  margin: 10px 0 0 -15px;
   cursor: pointer;
   font-size: 14px;
   background: rgba(232, 165, 112, .6);
