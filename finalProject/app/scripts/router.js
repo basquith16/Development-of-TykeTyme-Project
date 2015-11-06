@@ -14,9 +14,9 @@ class Router extends Backbone.Router {
 
   index() {
     const calendarView = new CalendarView({
-      model: new Schedule()
+      model: this.schedule
     });
-    calendarView.render();
+    $('#calendar').html(calendarView.render());
   }
 
   showCrafts() {
