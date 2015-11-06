@@ -47,12 +47,13 @@ class CalendarView extends Backbone.View {
     return $('#calendarTemplate').text();
   }
 
-  initialize() {
-    this.render();
-    this.listenTo(this.model, 'change', this.render);
-  }
+  // initialize() {
+  //   this.render();
+    // this.listenTo(this.model, 'change', this.render);
+  // }
 
   render() {
+    console.log('rendering')
     $('#calendar').fullCalendar({
       header: {
         left: 'prev,next today',

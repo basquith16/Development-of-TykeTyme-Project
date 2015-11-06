@@ -4,6 +4,8 @@ _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
 
+class Calendar extends Backbone.Model {};
+
 class Schedule extends Backbone.Model {
   get defaults() {
     return {

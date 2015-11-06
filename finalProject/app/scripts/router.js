@@ -13,12 +13,9 @@ class Router extends Backbone.Router {
   }
 
   index() {
-    const calendarView = new CalendarView({
-      model: this.schedule
-    });
+    const calendarView = new CalendarView();
     $('#calendar').html(calendarView.render());
   }
-
   showCrafts() {
     this.crafts = new Crafts();
     const craftsView = new CraftsView({
@@ -72,6 +69,7 @@ class Router extends Backbone.Router {
     this.activities = new Activities();
     this.meals = new Meals();
     this.schedule = new Schedule();
+    this.calendar = new Calendar();
     this.plansView = new PlansView({model: this.schedule});
 
     Backbone.history.start();

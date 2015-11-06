@@ -6,6 +6,5 @@ _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
 
-//calendar JS
 $(document).ready(function() {
 });
