@@ -14,8 +14,8 @@ class Router extends Backbone.Router {
 
   index() {
     const calendarView = new CalendarView();
-    $('#calendar').html(calendarView.render());
   }
+
   showCrafts() {
     this.crafts = new Crafts();
     const craftsView = new CraftsView({
@@ -24,7 +24,7 @@ class Router extends Backbone.Router {
     });
 
     this.crafts.fetch().done(() => {
-      $('#calendar').html(craftsView.render());
+      $('#main').html(craftsView.render());
     }).fail((xhr, status, error) => {
       console.log(xhr, status, error);
     })
@@ -38,7 +38,7 @@ class Router extends Backbone.Router {
     });
 
     this.activities.fetch().done(() => {
-      $('#calendar').html(activitiesView.render());
+      $('#main').html(activitiesView.render());
     }).fail((xhr, status, error) => {
       console.log(xhr, status, error);
     })
@@ -52,7 +52,7 @@ class Router extends Backbone.Router {
     });
 
     this.meals.fetch().done(() => {
-      $('#calendar').html(mealsView.render());
+      $('#main').html(mealsView.render());
     }).fail((xhr, status, error) => {
       console.log(xhr, status, error);
     })
@@ -60,7 +60,7 @@ class Router extends Backbone.Router {
 
   showMap() {
     $.ajax('map.html').then(function(page) {
-      $('#calendar').html(page);
+      $('#main').html(page);
     })
  }
 

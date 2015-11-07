@@ -43,7 +43,9 @@
   <div id='wrap'>
     <div id='external-events'>
     </div>
-    <div id='calendar'></div>
+    <div id="main">
+
+    </div>
     <div style='clear:both'></div>
   </div>
   </div>
@@ -83,13 +85,17 @@
       <button type="button" id="addItem">Add</button>
     </div>
   </script>
-  <script type="text/html" id="calendarTemplate"></script>
+  <script type="text/html" id="calendarTemplate">
+    <div id='calendar'></div>
+  </script>
   <script type="text/html" id="plansTemplate">
     <h4>Plans</h4>
     <ul id="dragList">
-      <li class='fc-event'>Elephant Plate Art</li>
     </ul>
     <p>
+      <!-- <script type="text/html" id="manualAddTemplate">
+        <input type="text" id="manualAddItem" placeholder="Manually Enter Event"></input>
+      </script> -->
       <input type='checkbox' id='drop-remove' />
       <label for='drop-remove'>remove after drop</label>
     </p>

@@ -6,5 +6,10 @@ _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
 
-$(document).ready(function() {
+//Manual Event Text Input
+$('form').submit(function() {
+  if ($('input').val() !== '') {
+  var value = $('input').val();
+  $('#dragList').append($('<li class="fc-event"></li>'));
+}
 });

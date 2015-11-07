@@ -15,20 +15,37 @@ class PlansView extends Backbone.View {
     this.listenTo(this.model, 'change', this.render);
   }
 
+//   initialize(options) {
+//     this.schedule = options.schedule;
+//   }
+//
+//   events() {
+//     return {
+//       'keypress .edit' : 'updateOnEnter'              THis Broke Things
+//     }
+//   }
+//
+//   updateOnEnter()  {
+//     if(e.which === 13){
+//     this.schedule.set('plans',
+//       this.schedule.get('plans').concat(this.model)
+//     );
+//   }
+// }
+
   render() {
     this.$el.html(this.template);
     var list = $('#dragList', this.$el);
 
     _.each(this.model.get('plans'), function (plan) {
-      console.log(plan);
-      list.append('<li class="fc-event">' +  plan.displayName + '</li>');
+      list.append($('<li class="fc-event">' +  plan.displayName + '</li>'));
     });
-
-    $('.fc-event', this.$el).each(function() {
+    $('#external-events').html(this.$el);
+    $('.fc-event').each(function() {
       // store data so the calendar knows to render an event upon drop
       $(this).data('event', {
         title: $.trim($(this).text()), // use the element's text as the event title
-        stick: true // maintain when user navigates (see docs on the renderEvent method)
+        stick: true, // maintain when user navigates (see docs on the renderEvent method)
       });
       $(this).draggable({
         zIndex: 999,
@@ -36,8 +53,6 @@ class PlansView extends Backbone.View {
         revertDuration: 0 //  original position after the drag
       });
     });
-
-    $('#external-events').html(this.$el);
   }
 }
 
@@ -47,14 +62,16 @@ class CalendarView extends Backbone.View {
     return $('#calendarTemplate').text();
   }
 
-  // initialize() {
-  //   this.render();
-    // this.listenTo(this.model, 'change', this.render);
-  // }
+  initialize() {
+    this.listenTo(this.model, 'change', this.render);
+    this.render();
+  }
 
   render() {
-    console.log('rendering')
-    $('#calendar').fullCalendar({
+    this.$el.html(this.template);
+    $('#main').html(this.$el);
+
+    $('#calendar', this.$el).fullCalendar({
       header: {
         left: 'prev,next today',
         center: 'title',
@@ -62,12 +79,15 @@ class CalendarView extends Backbone.View {
       },
       editable: true,
       droppable: true, // this allows things to be dropped onto the calendar
-      drop: function() {
+      drop: function(date, jsEvent, ui) {
         // is the "remove after drop" checkbox checked?
         if ($('#drop-remove').is(':checked')) {
           // if so, remove the element from the "Draggable Events" list
           $(this).remove();
         }
+
+        console.log('dropped!', $(this).data());
+
       }
     });
   }
@@ -217,3 +237,7 @@ class MealsView extends Backbone.View {
     return this.$el;
   }
 };
+
+// class ManualAddView extends Backbone.View { May not need
+//
+// }
