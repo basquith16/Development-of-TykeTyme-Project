@@ -4,6 +4,20 @@ _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
 
+//Manual Event Text Input
+$(document).ready(function() {
+  $('form').submit(function(e) {
+    e.preventDefault();
+    var answer = $('input').val();
+    if ($('input').val() !== '') {
+      $('#dragList').append($('<li class="fc-event">' + answer + '</li>'));
+      console.log('append');
+    }
+    $('input').val('');
+    return false;
+  });
+});
+
 class PlansView extends Backbone.View {
 
   get template() {
@@ -14,24 +28,6 @@ class PlansView extends Backbone.View {
     this.render();
     this.listenTo(this.model, 'change', this.render);
   }
-
-//   initialize(options) {
-//     this.schedule = options.schedule;
-//   }
-//
-//   events() {
-//     return {
-//       'keypress .edit' : 'updateOnEnter'              THis Broke Things
-//     }
-//   }
-//
-//   updateOnEnter()  {
-//     if(e.which === 13){
-//     this.schedule.set('plans',
-//       this.schedule.get('plans').concat(this.model)
-//     );
-//   }
-// }
 
   render() {
     this.$el.html(this.template);
@@ -237,7 +233,3 @@ class MealsView extends Backbone.View {
     return this.$el;
   }
 };
-
-// class ManualAddView extends Backbone.View { May not need
-//
-// }

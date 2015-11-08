@@ -4,14 +4,13 @@ _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
 
-// class ManualAdd extends Backbone.Model {}; May not need
-
 class Calendar extends Backbone.Model {};
 
 class Schedule extends Backbone.Model {
   get defaults() {
     return {
-      plans: []
+      plans: [
+      ]
     }
   }
 }
@@ -32,13 +31,6 @@ class Meal extends Backbone.Model {
     return this.get('title');
   }
 }
-
-class ManualAdds extends Backbone.Collection {
-  get model() {
-    return manualAdd
-  }
-}
-// var manualAdd = new ManualAdd(); May Not Need
 
 class Crafts extends Backbone.Collection {
   get url() {

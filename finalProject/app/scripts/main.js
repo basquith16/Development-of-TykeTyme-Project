@@ -5,11 +5,3 @@ Parse.initialize("jtKp70qF95AUOliYuurtfCASVEZr35aOs1pdNhHS", "orSL5zhN13Qqiamy3q
 _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
-
-//Manual Event Text Input
-$('form').submit(function() {
-  if ($('input').val() !== '') {
-  var value = $('input').val();
-  $('#dragList').append($('<li class="fc-event"></li>'));
-}
-});
