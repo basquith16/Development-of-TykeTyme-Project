@@ -5,13 +5,20 @@ _.templateSettings = {
 };
 
 class Calendar extends Backbone.Model {};
+class Contact extends Backbone.Model {};
 
 class Schedule extends Backbone.Model {
   get defaults() {
     return {
-      plans: [
-      ]
+      localStorage: true,
+      plans: []
     }
+  }
+
+  push(arg, val) {
+    var arr = _.clone(this.get(arg));
+    arr.push(val);
+    this.set(arg, arr);
   }
 }
 
@@ -32,7 +39,14 @@ class Meal extends Backbone.Model {
   }
 }
 
+// class Contacts extends Backbone.Collection{};
+
 class Crafts extends Backbone.Collection {
+  get defaults() {
+    return {
+      localStorage: new Store("craft"),
+    }
+  };
   get url() {
     return '../crafts.jsonl'
   }
@@ -42,6 +56,11 @@ class Crafts extends Backbone.Collection {
 }
 
 class Activities extends Backbone.Collection {
+  get defaults() {
+    return {
+      localStorage: new Store("activity")
+    }
+  };
   get url() {
     return '../PhysActivities.JSON'
   }
@@ -51,6 +70,11 @@ class Activities extends Backbone.Collection {
 }
 
 class Meals extends Backbone.Collection {
+  get defaults() {
+    return {
+      localStorage: true
+    }
+  };
   get url() {
     return '../meals.JSON'
   }

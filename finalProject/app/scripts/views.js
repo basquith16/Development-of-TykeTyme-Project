@@ -4,20 +4,6 @@ _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
 
-//Manual Event Text Input
-$(document).ready(function() {
-  $('form').submit(function(e) {
-    e.preventDefault();
-    var answer = $('input').val();
-    if ($('input').val() !== '') {
-      $('#dragList').append($('<li class="fc-event">' + answer + '</li>'));
-      console.log('append');
-    }
-    $('input').val('');
-    return false;
-  });
-});
-
 class PlansView extends Backbone.View {
 
   get template() {
@@ -33,8 +19,8 @@ class PlansView extends Backbone.View {
     this.$el.html(this.template);
     var list = $('#dragList', this.$el);
 
-    _.each(this.model.get('plans'), function (plan) {
-      list.append($('<li class="fc-event">' +  plan.displayName + '</li>'));
+    _.each(this.model.get('plans'), function(plan) {
+      list.append($('<li class="fc-event">' + plan.displayName + '</li>'));
     });
     $('#external-events').html(this.$el);
     $('.fc-event').each(function() {
@@ -48,6 +34,30 @@ class PlansView extends Backbone.View {
         revert: true, // will cause the event to go back to its
         revertDuration: 0 //  original position after the drag
       });
+    });
+
+    $('form').submit((e) => {
+      e.preventDefault();
+      var answer = $('input').val();
+      if (answer !== '') {
+        // var new_element = $('<li class="fc-event">' + answer + '</li>');
+        // $('#dragList').append(new_element);
+        //
+        // new_element.data('event', {
+        //   title: $.trim(new_element.text()), // use the element's text as the event title
+        //   stick: true, // maintain when user navigates (see docs on the renderEvent method)
+        // });
+        // new_element.draggable({
+        //   zIndex: 999,
+        //   revert: true, // will cause the event to go back to its
+        //   revertDuration: 0 //  original position after the drag
+        // });
+
+        this.model.push('plans', new Activity({title: answer}));
+        this.model.save({title: answer});
+      }
+      $('input').val('');
+      return false;
     });
   }
 }
@@ -104,7 +114,7 @@ class CraftView extends Backbone.View {
     }
   }
 
-  onButtonNewClick()  {
+  onButtonNewClick() {
     this.schedule.set('plans',
       this.schedule.get('plans').concat(this.model)
     );
@@ -131,7 +141,7 @@ class ActivityView extends Backbone.View {
     }
   }
 
-  onButtonNewClick()  {
+  onButtonNewClick() {
     this.schedule.set('plans',
       this.schedule.get('plans').concat(this.model)
     );
@@ -158,10 +168,8 @@ class MealView extends Backbone.View {
     }
   }
 
-  onButtonNewClick()  {
-    this.schedule.set('plans',
-      this.schedule.get('plans').concat(this.model)
-    );
+  onButtonNewClick() {
+    this.schedule.push('plans', this.model);
   }
 
   render() {
@@ -231,5 +239,21 @@ class MealsView extends Backbone.View {
           .append(view.render());
       });
     return this.$el;
+  }
+};
+
+class ContactView extends Backbone.View {
+
+  get template() {
+    return $('#contactTemplate').text();
+  }
+
+  initialize() {
+    this.render();
+  }
+
+  render() {
+    this.$el.html(this.template);
+    $('#main').html(this.$el);
   }
 };

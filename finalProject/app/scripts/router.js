@@ -8,7 +8,8 @@ class Router extends Backbone.Router {
       'crafts': 'showCrafts',
       'activities': 'showActivities',
       'whatsAround': 'showMap',
-      'meals': 'showMeals'
+      'meals': 'showMeals',
+      'contact': 'contactUs'
     };
   }
 
@@ -62,7 +63,20 @@ class Router extends Backbone.Router {
     $.ajax('map.html').then(function(page) {
       $('#main').html(page);
     })
- }
+  }
+
+  contactUs() {
+    this.contact = new Contact();
+    const contactView = new ContactView({
+      schedule: this.schedule,
+    });
+
+    this.contact.fetch().done(() => {
+      $('#main').html(craftsView.render());
+    }).fail((xhr, status, error) => {
+      console.log(xhr, status, error);
+    })
+  }
 
   initialize() {
     this.crafts = new Crafts();
@@ -70,7 +84,10 @@ class Router extends Backbone.Router {
     this.meals = new Meals();
     this.schedule = new Schedule();
     this.calendar = new Calendar();
-    this.plansView = new PlansView({model: this.schedule});
+    this.contact = new Contact();
+    this.plansView = new PlansView({
+      model: this.schedule
+    });
 
     Backbone.history.start();
   }

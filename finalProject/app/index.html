@@ -35,7 +35,7 @@
         <li><a href="#/activities">Activities</a></li>
         <li><a href="#/whatsAround">What's Around</a></li>
         <li><a href="#/meals">Meals</a></li>
-        <li><a href="#/contactUs">Contact Us</a></li>
+        <li><a href="#/contact">Contact Us</a></li>
       </ul>
     </div>
   </div>
@@ -62,26 +62,34 @@
         <span>Cost:</span> ${{ cost }}</div>
       <div class="age">
         <span>Age:</span> {{ age }}</div>
-        <button type="button" id="addItem">Add</button>
+      <button type="button" id="addItem">Add</button>
     </div>
   </script>
   <script type="text/template" id="activityTemplate">
     <div class="activityListing">
       <div class="actTitle">{{ title }}</div>
-      <div class="actDirect"><span>Directions:</Span>{{ directions }}</div>
-      <div class="actMaterials"><span>Materials:</Span>{{ materials }}</div>
-      <div class="actCost"><span>Cost: $</Span>{{ cost }}</div>
-      <div class="actAge"><span>Age:</Span>{{ age }}</div>
+      <div class="actDirect">
+        <span>Directions:</Span>{{ directions }}</div>
+      <div class="actMaterials">
+        <span>Materials:</Span>{{ materials }}</div>
+      <div class="actCost">
+        <span>Cost: $</Span>{{ cost }}</div>
+      <div class="actAge">
+        <span>Age:</Span>{{ age }}</div>
       <button type="button" id="addItem">Add</button>
     </div>
   </script>
   <script type="text/html" id="mealTemplate">
     <div class="mealListing">
       <div class="mealTitle">{{ title }}</div>
-      <div class="mealIngred"><span>Ingredients:</span>{{ ingredients }}</div>
-      <div class="mealDirect"><span>Directions:</span>{{ directions }}</div>
-      <div class="mealCost"><span>Cost: $</span>{{ cost }}</div>
-      <div class="mealAge"><span>Age:</span>{{ age }}</div>
+      <div class="mealIngred">
+        <span>Ingredients:</span>{{ ingredients }}</div>
+      <div class="mealDirect">
+        <span>Directions:</span>{{ directions }}</div>
+      <div class="mealCost">
+        <span>Cost: $</span>{{ cost }}</div>
+      <div class="mealAge">
+        <span>Age:</span>{{ age }}</div>
       <button type="button" id="addItem">Add</button>
     </div>
   </script>
@@ -94,11 +102,23 @@
     </ul>
     <p>
       <form id='manualAdd'>
-       <input type="text" placeholder="Manually Add Event" />
+        <input type="text" placeholder="Manually Add Event" />
       </form>
       <input type='checkbox' id='drop-remove' />
       <label for='drop-remove'>remove after drop</label>
     </p>
+  </script>
+  <script type="text/html" id="contactTemplate">
+    <div id='contact'>
+      <p>
+        Contact us:
+        <ul class="contactUs" style="list-style: none">
+          <li><a href='https://twitter.com/basquith16' target='_blank'style="border: none"><img src='../images/twitter.png') style="height: 80px; width: 80px; opacity: .6"/></a></li>
+        <a href="mailto:basquithcpt@gmail.com?Subject=Hello%20again" target="_top"><img src='../images/email.png') style="height: 80px; width: 80px; opacity: .4"/></a>
+        </p>
+      <p>
+      </p>
+    </div>
   </script>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
@@ -136,6 +156,7 @@
   <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.16/backbone.localStorage-min.js'></script>
   <script src="scripts/main.js"></script>
   <script src="scripts/parseLogin.js"></script>
   <script src="scripts/router.js"></script>
