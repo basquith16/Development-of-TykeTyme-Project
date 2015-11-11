@@ -22,9 +22,11 @@ input {
 }
 
 #trashBin {
-  height: 50px;
-  width: 200px;
-  background-color: black;
+  background-image: url('../images/trashBin.ico');
+  background-size: cover;
+  height: 70px;
+  width: 70px;
+  margin: 20px 0 0 30px;
 }
 
 .text-muted {
@@ -149,4 +151,13 @@ color: rgb(64, 134, 177);
 #manualAdd input {
   text-align: center;
   margin-bottom: 7px;
+}
+
+#addItem {
+  border-radius: 5%;
+  font-family: Bodoni;
+  background-color: rgba(64, 134, 177, .4);
+  font-size: 16px;
+  line-height: 1em;
+  height: 25px;
 }

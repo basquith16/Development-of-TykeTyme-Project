@@ -49,11 +49,24 @@ class CalendarView extends Backbone.View {
   initialize() {
     this.listenTo(this.model, 'change', this.render);
     this.render();
-    $('#fc-event').draggable();
-    $('#trashBin').droppable();
+
+    // $('#trashBin').droppable();
   }
   handleDrop(event) {
+    console.log('dropped!');
     var events = $('#calendar').fullCalendar('clientEvents').map((event) => {
+      return {
+        title: event.title,
+        start: event.start.format("L"),
+        allDay: true
+      }
+    });
+    localStorage.setItem('events', JSON.stringify(events));
+  }
+
+  trashDrop(event) {
+    console.log('dropped!');
+    var events = $('#trashBin').html('clientEvents').map((event) => {
       return {
         title: event.title,
         start: event.start.format("L"),
@@ -85,6 +98,14 @@ class CalendarView extends Backbone.View {
       }
     });
   }
+  // trashEvents() {
+  //   $('#trashBin').html({
+  //     editable: true,
+  //     droppable: true,
+  //     eventDrop: this.handleDrop,
+  //     eventReceive: this.handleDrop
+  //   })
+  // }
 }
 
 class CraftView extends Backbone.View {
