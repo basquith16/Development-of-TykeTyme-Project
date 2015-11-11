@@ -21,6 +21,12 @@ input {
   font-size: 24px;
 }
 
+#trashBin {
+  height: 50px;
+  width: 200px;
+  background-color: black;
+}
+
 .text-muted {
   font-family: 'Caveat', cursive;
   font-weight: 900;
@@ -76,7 +82,7 @@ li a:hover {
 
 #external-events .fc-event {
   border: none;
-  font-family: Myriad Pro;
+  font-family: Bodoni;
   text-align: center;
 }
 
@@ -105,7 +111,7 @@ header {
 }
 
 .login a {
-  font-family: Garamond;
+  font-family: Bodoni;
   font-size: 20px;
   color: rgb(64, 134, 177);
 }
@@ -126,7 +132,7 @@ a:visited, a:active, a:focus {
 }
 
 .register a {
-font-family: Garamond;
+font-family: Bodoni;
 font-size: 20px;
 color: rgb(64, 134, 177);
 }
@@ -137,4 +143,10 @@ color: rgb(64, 134, 177);
 
 #contact {
   color: rgb(64, 134, 177);
+  font-family: Bodoni;
+}
+
+#manualAdd input {
+  text-align: center;
+  margin-bottom: 7px;
 }

@@ -33,7 +33,9 @@ class PlansView extends Backbone.View {
       e.preventDefault();
       var answer = $('input').val();
       if (answer !== '') {
-        this.model.push('plans', new Activity({title: answer}));
+        this.model.push('plans', new Activity({
+          title: answer
+        }));
       }
       $('input').val('');
       return false;
@@ -47,6 +49,8 @@ class CalendarView extends Backbone.View {
   initialize() {
     this.listenTo(this.model, 'change', this.render);
     this.render();
+    $('#fc-event').draggable();
+    $('#trashBin').droppable();
   }
   handleDrop(event) {
     var events = $('#calendar').fullCalendar('clientEvents').map((event) => {
@@ -58,6 +62,7 @@ class CalendarView extends Backbone.View {
     });
     localStorage.setItem('events', JSON.stringify(events));
   }
+
   render() {
     this.$el.html(this.template);
     $('#main').html(this.$el);

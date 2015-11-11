@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,7 @@
   <link href='schedule/fullcalendar.print.css' rel='stylesheet' media='print' />
   <script src="/bower_components/modernizr/modernizr.js"></script>
 </head>
+
 <body>
   <header>
     <h3 class="text-muted">TykeTyme</h3>
@@ -89,7 +91,9 @@
     </div>
   </script>
   <script type="text/html" id="calendarTemplate">
-    <div id='calendar'></div>
+    <div id='calendar'>
+    <div class="fc-droppable" id="trashBin"></div>
+  </div>
   </script>
   <script type="text/html" id="plansTemplate">
     <h4>Plans</h4>
@@ -105,12 +109,22 @@
   </script>
   <script type="text/html" id="contactTemplate">
     <div id='contact'>
+      <h1 style="text-align: center">Thank You!</h1>
+      <h3>Thank you for using TykeTyme! We do hope that you are enjoying your experience.
+        Feel free to follow us on Twitter to look for news or updates. Just click the link below!
+        If you have any comments, suggestions, or technical issues, please click the email link below
+        and let us know!</h3>
       <p>
-        Contact us:
         <ul class="contactUs" style="list-style: none">
-          <li><a href='https://twitter.com/basquith16' target='_blank'style="border: none"><img src='../images/twitter.png') style="height: 80px; width: 80px; opacity: .6"/></a></li>
-        <a href="mailto:basquithcpt@gmail.com?Subject=TykeTyme%20App" target="_top"><img src='../images/email.png') style="height: 80px; width: 80px; opacity: .4"/></a>
-        </p>
+          <li>
+            <a href='https://twitter.com/basquith16' target='_blank' style="border: none">
+              <img src='../images/twitter.png' ) style="height: 80px; width: 80px; opacity: .6" />
+            </a>
+          </li>
+          <a href="mailto:basquithcpt@gmail.com?Subject=TykeTyme%20App" target="_top">
+            <img src='../images/email.png' ) style="height: 80px; width: 80px; opacity: .4" />
+          </a>
+      </p>
       <p>
       </p>
     </div>
@@ -131,9 +145,11 @@
     }(window, document, 'script', 'ga'));
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
+
   </script>
   <script src='schedule/lib/moment.min.js'></script>
   <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src='schedule/lib/jquery-ui.custom.min.js'></script>
   <script src='schedule/fullcalendar.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js'></script>
@@ -143,4 +159,5 @@
   <script src="scripts/models.js"></script>
   <script src="scripts/views.js"></script>
 </body>
+
 </html>
