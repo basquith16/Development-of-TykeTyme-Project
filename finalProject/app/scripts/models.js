@@ -3,31 +3,32 @@
 _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
-
 class Calendar extends Backbone.Model {};
 class Contact extends Backbone.Model {};
-
 class Schedule extends Backbone.Model {
+  initialize() {
+    this.bind('change', this.persist);
+  }
+  persist() {
+    var plans = this.get('plans').map((plan) => { return plan.get('title') });
+    localStorage.setItem('plans', JSON.stringify(plans));
+  }
   get defaults() {
     return {
-      localStorage: true,
       plans: []
     }
   }
-
   push(arg, val) {
     var arr = _.clone(this.get(arg));
     arr.push(val);
     this.set(arg, arr);
   }
 }
-
 class Craft extends Backbone.Model {
   get displayName() {
     return this.get('title');
   }
 }
-
 class Activity extends Backbone.Model {
   get displayName() {
     return this.get('title');
@@ -38,15 +39,7 @@ class Meal extends Backbone.Model {
     return this.get('title');
   }
 }
-
-// class Contacts extends Backbone.Collection{};
-
 class Crafts extends Backbone.Collection {
-  get defaults() {
-    return {
-      localStorage: new Store("craft"),
-    }
-  };
   get url() {
     return '../crafts.jsonl'
   }
@@ -54,13 +47,7 @@ class Crafts extends Backbone.Collection {
     return Craft
   }
 }
-
 class Activities extends Backbone.Collection {
-  get defaults() {
-    return {
-      localStorage: new Store("activity")
-    }
-  };
   get url() {
     return '../PhysActivities.JSON'
   }
@@ -68,13 +55,7 @@ class Activities extends Backbone.Collection {
     return Activity
   }
 }
-
 class Meals extends Backbone.Collection {
-  get defaults() {
-    return {
-      localStorage: true
-    }
-  };
   get url() {
     return '../meals.JSON'
   }

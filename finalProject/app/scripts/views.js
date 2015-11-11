@@ -1,24 +1,18 @@
 "use strict";
-
 _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
-
 class PlansView extends Backbone.View {
-
   get template() {
     return $('#plansTemplate').text();
   }
-
   initialize() {
     this.render();
     this.listenTo(this.model, 'change', this.render);
   }
-
   render() {
     this.$el.html(this.template);
     var list = $('#dragList', this.$el);
-
     _.each(this.model.get('plans'), function(plan) {
       list.append($('<li class="fc-event">' + plan.displayName + '</li>'));
     });
@@ -35,49 +29,40 @@ class PlansView extends Backbone.View {
         revertDuration: 0 //  original position after the drag
       });
     });
-
     $('form').submit((e) => {
       e.preventDefault();
       var answer = $('input').val();
       if (answer !== '') {
-        // var new_element = $('<li class="fc-event">' + answer + '</li>');
-        // $('#dragList').append(new_element);
-        //
-        // new_element.data('event', {
-        //   title: $.trim(new_element.text()), // use the element's text as the event title
-        //   stick: true, // maintain when user navigates (see docs on the renderEvent method)
-        // });
-        // new_element.draggable({
-        //   zIndex: 999,
-        //   revert: true, // will cause the event to go back to its
-        //   revertDuration: 0 //  original position after the drag
-        // });
-
         this.model.push('plans', new Activity({title: answer}));
-        this.model.save({title: answer});
       }
       $('input').val('');
       return false;
     });
   }
 }
-
 class CalendarView extends Backbone.View {
-
   get template() {
     return $('#calendarTemplate').text();
   }
-
   initialize() {
     this.listenTo(this.model, 'change', this.render);
     this.render();
   }
-
+  handleDrop(event) {
+    var events = $('#calendar').fullCalendar('clientEvents').map((event) => {
+      return {
+        title: event.title,
+        start: event.start.format("L"),
+        allDay: true
+      }
+    });
+    localStorage.setItem('events', JSON.stringify(events));
+  }
   render() {
     this.$el.html(this.template);
     $('#main').html(this.$el);
-
     $('#calendar', this.$el).fullCalendar({
+      events: JSON.parse(localStorage.getItem('events')),
       header: {
         left: 'prev,next today',
         center: 'title',
@@ -85,15 +70,13 @@ class CalendarView extends Backbone.View {
       },
       editable: true,
       droppable: true, // this allows things to be dropped onto the calendar
+      eventDrop: this.handleDrop,
+      eventReceive: this.handleDrop,
       drop: function(date, jsEvent, ui) {
         // is the "remove after drop" checkbox checked?
         if ($('#drop-remove').is(':checked')) {
-          // if so, remove the element from the "Draggable Events" list
           $(this).remove();
         }
-
-        console.log('dropped!', $(this).data());
-
       }
     });
   }
@@ -103,57 +86,46 @@ class CraftView extends Backbone.View {
   get template() {
     return _.template($('#craftTemplate').text());
   }
-
   initialize(options) {
     this.schedule = options.schedule;
   }
-
   events() {
     return {
       'click #addItem': 'onButtonNewClick'
     }
   }
-
   onButtonNewClick() {
     this.schedule.set('plans',
       this.schedule.get('plans').concat(this.model)
     );
   }
-
   render() {
     this.$el.html(this.template(this.model.attributes));
     return this.$el;
   }
 }
-
 class ActivityView extends Backbone.View {
   get template() {
     return _.template($('#activityTemplate').text());
   }
-
   initialize(options) {
     this.schedule = options.schedule;
   }
-
   events() {
     return {
       'click #addItem': 'onButtonNewClick'
     }
   }
-
   onButtonNewClick() {
     this.schedule.set('plans',
       this.schedule.get('plans').concat(this.model)
     );
   }
-
   render() {
     this.$el.html(this.template(this.model.attributes));
     return this.$el;
   }
 }
-
-
 class MealView extends Backbone.View {
   get template() {
     return _.template($('#mealTemplate').text());
@@ -167,24 +139,19 @@ class MealView extends Backbone.View {
       'click #addItem': 'onButtonNewClick'
     }
   }
-
   onButtonNewClick() {
     this.schedule.push('plans', this.model);
   }
-
   render() {
     this.$el
       .html(this.template(this.model.attributes));
     return this.$el;
   }
 }
-
 class CraftsView extends Backbone.View {
-
   initialize(options) {
     this.schedule = options.schedule
   }
-
   render() {
     const self = this;
     this.collection
@@ -199,13 +166,10 @@ class CraftsView extends Backbone.View {
     return this.$el;
   }
 };
-
 class ActivitiesView extends Backbone.View {
-
   initialize(options) {
     this.schedule = options.schedule
   }
-
   render() {
     const self = this;
     this.collection
@@ -220,13 +184,10 @@ class ActivitiesView extends Backbone.View {
     return this.$el;
   }
 };
-
 class MealsView extends Backbone.View {
-
   initialize(options) {
     this.schedule = options.schedule
   }
-
   render() {
     const self = this;
     this.collection
@@ -241,17 +202,13 @@ class MealsView extends Backbone.View {
     return this.$el;
   }
 };
-
 class ContactView extends Backbone.View {
-
   get template() {
     return $('#contactTemplate').text();
   }
-
   initialize() {
     this.render();
   }
-
   render() {
     this.$el.html(this.template);
     $('#main').html(this.$el);
