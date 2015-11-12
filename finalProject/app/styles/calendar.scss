@@ -1,4 +1,6 @@
 body {
+  display: flex;
+  flex-direction: column;
   margin-top: 40px;
   text-align: center;
   font-size: 14px;
@@ -21,6 +23,8 @@ body::after {
   width: 100%;
   position:fixed;
   z-index: -1;
+  display: flex;
+  flex-direction: column;
 }
 
 .fc-day.fc-today.fc-state-highlight {
@@ -38,24 +42,31 @@ text-shadow: 1px 1px black;
 }
 
 #wrap {
-  width: 1100px;
-  margin: 0 auto;
-  margin-right: 8%;
+  display: flex;
+  flex-direction: row;
+  margin: 4% 0 0 1.2%;
 }
 
 .fc-content {
   background: rgba(76, 186, 149, .4);
 }
 
+#calendar {
+  margin-left: 50px;
+  width: 108%;
+}
+
 #external-events {
+  display: flex;
+  flex-direction: column;
   font-family: Bodoni;
-  float: left;
+  // float: left;
   width: 160px;
   padding: 0 10px;
   border: 1px solid #ccc;
   background: rgba(76, 186, 149, .2);
   text-align: left;
-  margin-left: -3%;
+  margin-left: 5px;
 }
 
 #external-events h4 {
@@ -99,6 +110,8 @@ text-shadow: 1px 1px black;
 }
 
 #main {
+  display: flex;
+  flex-direction: column;
   text-align: left;
   float: right;
   width: 900px;

@@ -66,7 +66,7 @@ class CalendarView extends Backbone.View {
 
   trashDrop(event) {
     console.log('dropped!');
-    var events = $('#trashBin').html('clientEvents').map((event) => {
+    var events = $('#trashBin').html('removeEvents').map((event) => {
       return {
         title: event.title,
         start: event.start.format("L"),
