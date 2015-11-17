@@ -164,3 +164,8 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
 gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
+
+var ghpages = require('gh-pages');
+var path = require('path');
+
+ghpages.publish(path.join(__dirname, 'dist'), function(err) { ... });
