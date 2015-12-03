@@ -103,7 +103,7 @@ gulp.task('serve', ['styles', 'fonts'], () => {
   });
 
   gulp.watch([
-    'app/*.json'
+    'app/*.json',
     'app/*.html',
     'app/scripts/**/*.js',
     'app/images/**/*',
@@ -166,10 +166,10 @@ gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
 
-var ghpages = require('gh-pages');
+var ghPages = require('gulp-gh-pages');
 var path = require('path');
 
-gulp.task('deploy', ['build'], function() {
+gulp.task('deploy', function() {
   return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
