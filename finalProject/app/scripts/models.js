@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g

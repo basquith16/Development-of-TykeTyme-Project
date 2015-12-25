@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
 class Router extends Backbone.Router {
   get routes() {
     return {
-      "": 'index',
+      '': 'index',
       'crafts': 'showCrafts',
       'activities': 'showActivities',
       'whatsAround': 'showMap',

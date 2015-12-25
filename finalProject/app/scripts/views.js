@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
@@ -57,7 +57,7 @@ class CalendarView extends Backbone.View {
     var events = $('#calendar').fullCalendar('clientEvents').map((event) => {
       return {
         title: event.title,
-        start: event.start.format("L"),
+        start: event.start.format('L'),
         allDay: true
       }
     });
@@ -69,7 +69,7 @@ class CalendarView extends Backbone.View {
     var events = $('#trashBin').html('removeEvents').map((event) => {
       return {
         title: event.title,
-        start: event.start.format("L"),
+        start: event.start.format('L'),
         allDay: true
       }
     });

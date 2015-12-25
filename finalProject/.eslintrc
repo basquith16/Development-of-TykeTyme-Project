@@ -1,0 +1,15 @@
+{
+    "ecmaFeatures": {
+        "classes": false,
+        "arrowFunctions": true,
+        "blockBindings": true,
+        "modules": true,
+        "objectLiteralShorthandMethods": true,
+        "objectLiteralShorthandProperties": true
+    },
+
+  "parser": "babel-eslint",
+  "rules": {
+    "strict": 0
+  }
+}
